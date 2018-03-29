@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IdealVisit_StandardRoom</title>
+  <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+  <link rel="stylesheet" href="css/style.css"> <!-- Gem style -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  <link href="css/flexslider.css" rel="stylesheet">
+  <link href="css/templatemo-style.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+
+
+<body class="tm-gray-bg">
+
+  <header role="banner">
+    <div id="cd-logo"><a href="Home.html"><img src="img/icon_B.png" alt="Logo"></a></div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a class="cd-signin" href="#0">Sign in</a></li>
+        <li><a class="cd-signup" href="#0">Sign up</a></li>
+        <li><a class="cd-logout" href="#0">Log out</a></li>
+        <li><a class="cd-user" href="#0"></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="container tm-home-section-1" id="more">
+
+    <div class="section-margin-top">
+      <div class="row">
+        <div class="tm-section-header">
+          <div class="col-lg-3 col-md-3 col-sm-3"><hr></div>
+          <div class="col-lg-6 col-md-6 col-sm-6"><h2 class="tm-section-title" style="color:black">Standard Room</h2></div>
+          <div class="col-lg-3 col-md-3 col-sm-3"><hr></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="tm-tours-box-1" onclick="confirmOrder(this)">
+            <img alt="image" class="img-responsive" id = "img1" >
+            <div class="tm-tours-box-1-info">
+              <div class="tm-tours-box-1-info-left">
+                <p class="text-uppercase margin-bottom-20" id="hotel1"></p>
+                <p class="gray-text" id="street1"></p>
+
+                <p class="gray-text" id="city1"></p>
+              </div>
+              <div class="tm-tours-box-1-info-right">
+                <p class="gray-text tours-1-description" id="des1"></p>
+              </div>
+            </div>
+            <div class="tm-tours-box-1-link">
+              <div class="tm-tours-box-1-link-left">
+              </div>
+              <a href="#0" class="tm-tours-box-1-link-right" id="price1"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="tm-tours-box-1" onclick="confirmOrder(this)">
+            <img alt="image" class="img-responsive" id="img2">
+            <div class="tm-tours-box-1-info">
+              <div class="tm-tours-box-1-info-left">
+                <p class="text-uppercase margin-bottom-20" id="hotel2"></p>
+                <p class="gray-text" id="street2"></p>
+
+                <p class="gray-text" id="city2"></p>
+              </div>
+              <div class="tm-tours-box-1-info-right">
+                <p class="gray-text tours-1-description" id="des2"></p>
+              </div>
+            </div>
+            <div class="tm-tours-box-1-link">
+              <div class="tm-tours-box-1-link-left">
+              </div>
+              <a href="#0" class="tm-tours-box-1-link-right" id="price2"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="tm-tours-box-1" onclick="confirmOrder(this)">
+            <img alt="image" class="img-responsive" id="img3">
+            <div class="tm-tours-box-1-info">
+              <div class="tm-tours-box-1-info-left">
+                <p class="text-uppercase margin-bottom-20" id="hotel3"></p>
+                <p class="gray-text" id="street3"></p>
+                <p class="gray-text" id="city3"></p>
+              </div>
+              <div class="tm-tours-box-1-info-right">
+                <p class="gray-text tours-1-description" id="des3"></p>
+              </div>
+            </div>
+            <div class="tm-tours-box-1-link">
+              <div class="tm-tours-box-1-link-left">
+              </div>
+              <a href="#0" class="tm-tours-box-1-link-right" id="price3"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="tm-tours-box-1" onclick="confirmOrder(this)">
+            <img alt="image" class="img-responsive" id="img4">
+            <div class="tm-tours-box-1-info">
+              <div class="tm-tours-box-1-info-left">
+                <p class="text-uppercase margin-bottom-20" id="hotel4"></p>
+                <p class="gray-text" id="street4"></p>
+                <p class="gray-text" id="city4"></p>
+              </div>
+              <div class="tm-tours-box-1-info-right">
+                <p class="gray-text tours-1-description" id="des4"></p>
+              </div>
+            </div>
+            <div class="tm-tours-box-1-link">
+              <div class="tm-tours-box-1-link-left">
+              </div>
+              <a href="#0" class="tm-tours-box-1-link-right" id="price4"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dialog" title="Confirmation Required" ><div id="myDialogText"></div>
+    </div>​
+  </section>
+
+  <script
+   src="https://code.jquery.com/jquery-3.1.1.min.js"
+   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+   crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script src="js/jquery.flexslider-min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/templatemo-script.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/modernizr.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+
+  //George to receive the location
+  var loc = location.href;
+  var n1 = loc.length;//地址的总长度
+  var n2 = loc.indexOf("=");//取得=号的位置
+  var locid = decodeURI(loc.substr(n2+1, n1-n2));//从=号后面的内容
+  console.log("we are testing"+ locid);
+  // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDdkve5V7CP9ZmKlc5TzLR6ZQSic-FIgNg",
+      authDomain: "inf551-985c0.firebaseapp.com",
+      databaseURL: "https://inf551-985c0.firebaseio.com",
+      projectId: "inf551-985c0",
+      storageBucket: "inf551-985c0.appspot.com",
+      messagingSenderId: "511714336500"
+    };
+
+    firebase.initializeApp(config);
+
+    var user;
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        console.log(user.uid+" @personal_info");
+        $(".cd-logout").addClass('is-visible');
+        $(".cd-user").addClass('is-visible');
+        document.getElementsByClassName('cd-signin')[0].style.visibility = 'hidden';
+        document.getElementsByClassName('cd-signup')[0].style.visibility = 'hidden';
+
+      } else {
+        // No user is signed in.
+        console.log('you are not logged in!');
+        $(".cd-logout").removeClass('is-visible');
+        $(".cd-user").removeClass('is-visible');
+        document.getElementsByClassName('cd-signin')[0].style.visibility = 'visible';
+        document.getElementsByClassName('cd-signup')[0].style.visibility = 'visible';
+      }
+    });
+
+
+    $('.cd-logout').on('click', function(event){
+      firebase.auth().signOut();
+      window.location = "Home.html";
+    });
+    //go to personal Info page
+    $('.cd-user').on('click', function(event){
+      firebase.auth().onAuthStateChanged(function(firebaseUser){
+        if (firebaseUser){
+          window.location = "personal.html";
+        }
+        else {
+          console.log('not logged in');
+        }
+      });
+    });
+
+    var ID;
+    //fetch data
+    var rootRef = firebase.database().ref('/doubleRooms/');
+    rootRef.on("value", function(snapshot){
+      for(i = 1; i<=4; i++){
+        ID = i.toString();
+        console.log("Firebase"+snapshot.child(ID+'/address/city').val());
+        if (snapshot.child(ID+'/address/city').val()==locid){
+            document.getElementById("img"+ID).src = snapshot.child(ID+'/url').val();
+            document.getElementById("hotel"+ID).innerHTML = snapshot.child(ID+'/name').val();
+            document.getElementById("des"+ID).innerHTML = snapshot.child(ID+'/description').val();
+            document.getElementById("street"+ID).innerHTML = snapshot.child(ID+'/address/street').val();
+            document.getElementById("city"+ID).innerHTML = snapshot.child(ID+'/address/city').val();
+            document.getElementById("price"+ID).innerHTML = snapshot.child(ID+'/price').val();
+        }
+        else{
+            //document.getElementByClassName("tm-tours-box-1-info")[i].style = "display:none";
+            //document.getElementByClassName("tm-tours-box-1-link")[i].style = "display:none";
+            document.getElementById("img"+ID).style = "display:none";
+            document.getElementById("hotel"+ID).style = "display:none";
+            document.getElementById("des"+ID).style = "display:none";
+            document.getElementById("street"+ID).style = "display:none";
+            document.getElementById("city"+ID).style = "display:none";
+            document.getElementById("price"+ID).style = "display:none";
+        }
+
+      }
+    });
+
+    //add an order into personal information
+    function confirmOrder(list){
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          //do something
+          var hotel_n = list.getElementsByClassName("text-uppercase margin-bottom-20")[0].innerHTML,
+          hotel_p = list.getElementsByClassName("tm-tours-box-1-link-right")[0].innerHTML;
+
+          console.log("<p>Hotel: "+hotel_n+"</p><p>Price:"+hotel_p+"</p><p>Dates: </p>");
+          jQuery("#myDialogText").text("<p>Hotel: "+hotel_n+"</p><p>Price:"+hotel_p+"</p><p>Dates: </p>");
+
+          $('#dialog').dialog({
+              modal: true, title: 'Order Confirmation', zIndex: 100, autoOpen: true,
+              width: 300 , resizable: false,
+              buttons: {
+                  "Confirmed": function () {
+                      addOrder(user.uid, hotel_n, hotel_p);
+                      $(this).dialog("close");
+                  },
+                  Cancel: function () {
+                      $(this).dialog("close");
+                  }
+              },
+              close: function (event, ui) {
+                  $(this).remove();
+              }
+            }).position({
+             my: 'left',
+             at: 'right',
+             of: $(this)
+          });
+        }
+        else
+        {}
+      });
+    };
+
+
+
+    function addOrder(uid,  hotel_n, hotel_p){
+      var
+      newOrderID = firebase.database().ref('/users/'+uid).child('orders').push().key,
+      path = '/users/' + uid + '/orders/' + newOrderID,
+      updates = {};
+      updates[path +'/name'] = hotel_n;
+      updates[path +'/price'] = hotel_p ;
+      console.log(updates);
+      firebase.database().ref().update(updates);
+    };
+
+
+  </script>
+
+ </body>
+
+ </html>

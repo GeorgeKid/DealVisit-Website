@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <!--Javascript File-->
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  <title>MyProposal.com</title>
+  <style type="text/css">
+      @media (min-width: 768px) {
+        .container {
+          width: 750px;
+        }
+      }
+      @media (min-width: 992px) {
+        .container {
+          width: 970px;
+        }
+      }
+      @media (min-width: 1200px) {
+        .container {
+          width: 1170px;
+        }
+      }
+      h1, h2, h3, .masthead p, .subhead p, .marketing h2, .lead {font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei UI","Microsoft YaHei",SimHei,"宋体",simsun,sans-serif;font-weight: normal;}
+      .leftdiv{
+        background-color: #BBD8E9;
+        width: 20%;
+        float: left;
+        height: 300px;
+        border-radius: 3px 3px 3px 3px;
+      }
+      .rightdiv{
+        margin-left: 2.5%;
+        width: 77.5%;
+        float: left;
+        background-color: #DCEAF4;
+        height: 300px;
+        border-radius: 3px 3px 3px 3px;
+      }
+      input {
+        margin-left: 10px;
+      }
+      .btn {
+        margin-left: 10px;
+      }
+      .btn:hover {
+        cursor: pointer;
+      }
+      #proposal_category {
+        height: 60px;
+        margin-left: 20px;
+        margin-top: 20px;
+      }
+      li {
+        padding-left: 10px
+      }
+      .card {
+        margin: 10px 20px;
+        padding: 5px;
+        height: 80px;
+        width: 70%;
+      }
+      .card-block {
+        padding: 5px;
+        width: 100%;
+      }
+      .news
+      {
+        position:fixed;
+        bottom:25px;
+        right:10px;
+        width:25%;
+        height:500px;
+        background:#DCDCDC;
+      }
+      .news_block
+      {
+        border: solid 1px #cbc9c9;
+        border-radius: 4px 4px 4px 4px;
+
+
+      }
+      .title
+      {
+        font-family: "Arial Black", Gadget, sans-serif;
+        font-size: 100%;
+        margin: 10px;
+
+      }
+      .date
+      {
+        font-size: 70%;
+        text-align: right;
+      }
+      h5
+      {
+        text-align:center;
+        font-family: Impact, Charcoal, sans-serif;
+        font-size: 250%;
+      }
+    .rate
+    {
+    text-align:center;
+        float:right;
+        font-size: 80%;
+    width:70px;
+    }
+    .thumb-down
+    {
+        height: 80%;
+    width:70px;
+    }
+  </style>
+  <script type="text/javascript" src="js/index.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+      <div class="row" style="height: 70px; background-color: #FAFAFB">
+        <div class="col-md-5" style="padding: 15px 15px 15px 50px">
+          <h2 onclick="location.href = 'index.html';"><strong><em>My<em style="color: red">Proposal</em>.com</em></strong></h2>
+        </div>
+        <div class="col-md-7" style="padding: 10px">
+<!-- <<<<<<< HEAD -->
+          <button id ="signup" class="btn btn-action float-right">Sign Up</button>
+          <button id ="login" class="btn btn-primary float-right">Log In</button>
+          <button id="logout" class="btn btn-primary float-right">Log Out</button>
+          <button id="post_proposal" class="btn btn-primary float-right">Post</button>
+          <label id="user_info" class="float-right">Welcome! <span id="disp_user"></span></label>
+<!-- =======
+          <button id ="signup" class="btn btn-action" style="float: right">Sign Up</button>
+          <button id ="login" class="btn btn-primary" style="float: right">Log In</button>
+          <label id="user_info">Welcome! <span id="disp_user" style="float: right"></span></label>
+          <button id="post_proposal" class="btn btn-primary" style="float: right">Post</button>
+          <button id="logout" class="btn btn-primary" style="float: right">Log Out</button>
+>>>>>>> 9bd13e286bb9f4274c2733160bb40ffac0250613 -->
+        </div>
+      </div>
+      <div class="row" >
+        <div id="proposal_category">
+          <ul class="nav nav-pills">
+            <li class="nav-item active"><a class="nav-link active" data-toggle="tab" value="All" href="#">All</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" value="1001">Campus Life</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" value="2001">Public Security</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" value="3001">Entertainment</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="proposal_list"></div>
+    </div>
+    <div class="news">
+
+      <h5>News</h5><br>
+
+      <div class="news_block">
+      <div class="title" onclick="location.href = 'http://news.usc.edu/131930/students-find-home-away-from-home-at-annual-thanksgiving-dinner/';">Students find home away from home at annual Tahnksgiving dinner</div>
+      <div class="date">Nov 27, 2017<br></div>
+      <div class="title" onclick="location.href = 'http://news.usc.edu/131766/usc-hiking-class-could-help-students-tap-benefits-of-forest-bathing/';">Hiking class gets USC college students to tap benefits of 'forest bathing'</div>
+      <div class="date">Nov 24, 2017<br></div>
+      <div class="title" onclick="location.href ='http://news.usc.edu/131808/usc-track-team-lends-a-hand-to-help-free-turkeys-get-to-their-thanksgiving-tables/';">USC track team lends a hand to help free turkeys get to their Thanksgiving tables';"</div>
+      <div class="date">Nov 22, 2017<br></div>
+      <div class="title" onclick="location.href = 'http://calendar.usc.edu/event/musical_interventions#.WhwyNxNSyRs';">Musical Interventions</div>
+      <div class="date">Dec 2, 2017<br></div>
+    </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCCMcd6IQe1VjhjElv-ExFqOYAdD14S4v0",
+        authDomain: "myproposal-be581.firebaseapp.com",
+        databaseURL: "https://myproposal-be581.firebaseio.com",
+        projectId: "myproposal-be581",
+        storageBucket: "myproposal-be581.appspot.com",
+        messagingSenderId: "128814836934"
+      };
+      firebase.initializeApp(config);
+      // var proposal_dom = document.getElementById("test");
+      // var proposal_info = firebase.database().ref("proposal/10001");
+      // var proposal_title = proposal_info.child("pname");
+      // var res = proposal_dom.getElementsByTagName("h4");
+      // proposal_title.on("value", function(snap) {
+      //   console.log(snap.val());
+      //   res[0].innerHTML = snap.val();
+      // })
+      var user;
+      firebase.auth().onAuthStateChanged(firebaseUser =>{
+        checkUser();
+    // if (firebaseUser){
+    //   console.log(firebaseUser);
+    //   btnLogout.classList.remove('hide');
+    //   btnLogin.classList.add('hide');
+
+    //   user = firebase.auth().currentUser;
+    //   user.sendEmailVerification().then(function() {
+    //   // Email sent.
+    //   }).catch(function(error) {
+    //   // An error happened.
+    //   });
+
+
+    // }else {
+    //   console.log('not logged in');
+    //   btnLogout.classList.add('hide');
+    //   btnLogin.classList.remove('hide');
+    // }
+      });
+      window.onload = function() {
+        checkUser();
+        loadProposals("All");
+        initEvents();
+      }
+      function checkUser() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // User is signed in.
+            console.log(user);
+            $("#user_info").removeClass("d-none");
+            $("#post_proposal").removeClass("d-none");
+            $("#logout").removeClass("d-none");
+            $("#login").addClass("d-none");
+            $("#signup").addClass("d-none");
+            $("#disp_user").html(user.email);
+          } else {
+            // No user is signed in.
+            console.log('not logged in');
+            $("#user_info").addClass("d-none");
+            $("#post_proposal").addClass("d-none");
+            $("#logout").addClass("d-none");
+            $("#login").removeClass("d-none");
+            $("#signup").removeClass("d-none");
+            // $("#disp_user").html(user.email);
+          }
+        });
+      }
+      function initEvents() {
+        $("#login").on("click", function(e) {
+          window.location.href = "login.html";
+        });
+        $("#signup").on("click", function(e) {
+          window.location.href = "signup.html";
+        });
+        $("#logout").on("click", function(e) {
+          firebase.auth().signOut();
+          checkUser();
+        });
+        $("#post_proposal").on("click", function(e){
+          window.location.href = "post.html";
+        });
+        $("#proposal_category li a").on("click", function(e) {
+          $('#proposal_category li a.active').removeClass('active');
+          var $this = $(this);
+          if (!$this.hasClass('active')) {
+            $this.addClass('active');
+          }
+          e.preventDefault();
+          loadProposals($this.attr("value"));
+        });
+        $("#post_proposal").on("click", function(e) {
+          window.location.href = "post.html";
+        });
+      }
+      function loadProposals(category) {
+        var ref;
+        if (category == "All"){
+          ref = firebase.database().ref("proposal");
+        } else {
+          ref = firebase.database().ref("proposal").orderByChild("field").equalTo(category);
+        }
+        ref.on("value", function(snapshot) {
+          $("#proposal_list").empty();
+          snapshot.forEach(function(child){
+            if (child.val()["pname"]) {
+              var title = $('<div class="row-fluid">' +
+                '<div class="card">' +
+                '<div class="card-block" >' +
+                '<h4><a href="proposal.html?id=' + child.key + '">' + child.val()["pname"] + '</a>'+
+        '<p class="rate"  href="proposal.html?id=' + child.key + '"> ' +
+        '<img src="https://openclipart.org/download/285479/Thumbs-down-Circle.svg" height=25px />&nbsp' +
+        child.val()["dislike"] + '</p>'+
+        '<p class="rate"  href="proposal.html?id=' + child.key + '"> ' +
+        '<img src="https://openclipart.org/download/214028/Thumbs-Up-Circle.svg" height=35px />&nbsp' +
+        child.val()["like"] + '</p>'+
+        '</h4> </div>' +
+                '</div>' +
+                '</div>');
+              title.appendTo("#proposal_list");
+            }
+          });
+        });
+      }
+      // proposal_info.on("value", function(snapshot) {
+      //   snapshot.forEach(function(child) {
+      //     console.log((child.key + ", " + child.val()));
+      //   });
+      // });
+    </script>
+</body>
+</html>

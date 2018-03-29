@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head >
+  <link href="css/123.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+  <link rel="stylesheet" href="css/style.css"> <!-- Gem style -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner">
+    <div id="cd-logo"><a href="Home.html"><img src="img/icon_B.png" alt="Logo"></a></div>
+
+    <nav class="main-nav">
+      <ul>      
+        <li><a class="cd-signin" href="#0">Sign in</a></li>
+        <li><a class="cd-signup" href="#0">Sign up</a></li>
+        <li><a class="cd-logout" href="#0" >Log out</a></li>
+        <li><a class="cd-user" href="#0" ></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <button id="btnEdit" class="positive ui button" style="position: fixed; right: 5em; top: 8em;"> Edit</button>
+  <div id = "personal_info" class="ui list" >
+      <ul class="item" style = "text-align:center; font-size:30px; ">
+        <li class="eight wide field" style="margin: 1em;">
+          <i class="user icon" ></i>
+          <input id = "name" type="text" placeholder="" disabled>
+        </li>
+        <li class="eight wide field" style="margin: 1em;">
+          <i class="home icon"></i>
+          <input id = "address" type="text" placeholder="" disabled>
+        </li>
+
+        <li class="eight wide field" style="margin: 1em;">
+          <i class="mail icon"></i>
+          <input id = "e_mail" type="text" placeholder="" disabled>
+        </li>
+
+        <li class="eight wide field" style="margin: 1em;">
+          <i class="call icon" ></i>
+          <input id = "phone" type="text" placeholder="" disabled>
+        </li>                 
+      </ul>
+    </div>
+
+
+<script
+   src="https://code.jquery.com/jquery-3.1.1.min.js"
+   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+   crossorigin="anonymous"></script>   
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="js/templatemo-script.js"></script> 
+<script src="js/main.js"></script> 
+<script src="js/modernizr.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDdkve5V7CP9ZmKlc5TzLR6ZQSic-FIgNg",
+    authDomain: "inf551-985c0.firebaseapp.com",
+    databaseURL: "https://inf551-985c0.firebaseio.com",
+    projectId: "inf551-985c0",
+    storageBucket: "inf551-985c0.appspot.com",
+    messagingSenderId: "511714336500"
+  };
+  firebase.initializeApp(config);
+
+  var user;
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      console.log(user.uid+" @personal_info");
+      var rootRef = firebase.database().ref("users").child(user.uid);
+
+      rootRef.on("value", function(snapshot){
+        $("#name").val(snapshot.child("First_Name").val()+" "+snapshot.child("Last_Name").val());
+        $("#address").val(snapshot.child("Street").val());
+        $("#e_mail").val(snapshot.child("E_Mail").val());
+        $("#phone").val(snapshot.child("Phone_Num").val())
+
+      })
+      $(".cd-logout").addClass('is-visible');
+      $(".cd-user").addClass('is-visible');          
+      //$(".cd-signin").removeClass('is-visible');    
+      //$(".cd-signup").removeClass('is-visible');         
+      document.getElementsByClassName('cd-signin')[0].style.visibility = 'hidden';
+      document.getElementsByClassName('cd-signup')[0].style.visibility = 'hidden';  
+
+    } else {
+      // No user is signed in.
+      console.log('you are not logged in!');
+      $(".cd-logout").removeClass('is-visible');
+      $(".cd-user").removeClass('is-visible');           
+      //$(".cd-signin").addClass('is-visible');    
+      //$(".cd-signup").addClass('is-visible');      
+      document.getElementsByClassName('cd-signin')[0].style.visibility = 'visible';
+      document.getElementsByClassName('cd-signup')[0].style.visibility = 'visible';   
+     
+    }
+  });
+
+  $('#btnEdit').on('click', function(event){
+    window.location = "Menu2.html";
+  });
+ 
+
+  $('.cd-logout').on('click', function(event){
+    firebase.auth().signOut();
+
+    console.log('try to log out');
+    firebase.auth().onAuthStateChanged(function(firebaseUser){
+      if (firebaseUser){
+        console.log(firebaseUser+'not logged out');
+      }else {
+        console.log('logged out');
+        $(".cd-logout").removeClass('is-visible');
+        $(".cd-user").removeClass('is-visible');  
+      //$(".cd-signin").removeClass('is-visible');    
+      //$(".cd-signup").removeClass('is-visible');         
+      document.getElementsByClassName('cd-signin')[0].style.visibility = 'visible';
+      document.getElementsByClassName('cd-signup')[0].style.visibility = 'visible';  
+      }
+    });
+  });
+  //go to personal Info page
+  $('.cd-user').on('click', function(event){
+    firebase.auth().onAuthStateChanged(function(firebaseUser){
+      if (firebaseUser){
+        window.location = "personal.html";
+      }
+      else {
+        console.log('not logged in');
+      }
+    });
+  });
+
+</script>
+<script>$('.ui.dropdown').dropdown();</script>
+</body>
+</html>
